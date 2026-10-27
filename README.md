@@ -1,6 +1,6 @@
 # Lean formal results
 
-Lean 4 disproofs and AI-prover results (Vincent Weinreich, M.Sc. Mathematics, KIT), September–October 2026, with the
+Lean 4 disproofs and AI-prover results (Vincent Weinreich, M.Sc. Mathematics), September–October 2026, with the
 paper that reports them. Every proof in this repository was accepted by Lean without errors or `sorry`; the
 disproofs in `formal-conjectures/` use only the standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
 
