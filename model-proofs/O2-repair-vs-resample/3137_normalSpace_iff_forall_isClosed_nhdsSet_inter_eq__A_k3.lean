@@ -1,0 +1,19 @@
+/-
+Machine-generated proof, checked by Lean during the experiment.
+
+Theorem:     normalSpace_iff_forall_isClosed_nhdsSet_inter_eq
+Source:      Mathlib @ a02a63c2, Mathlib/Topology/Separation/Regular.lean, line 554
+             (new in Mathlib since d0a050ad6, i.e. after the models' training data)
+Experiment:  O2-repair-vs-resample, arm A, attempt 3, verified in round 0 (round 0 = first attempt)
+Prover:      claude-opus-5-5
+Setup:       Opus 5.5: arm B = one attempt plus up to 3 repair rounds with Lean error messages; arm A = 4 independent attempts (attempt k)
+Check:       the proof replaced the human proof in the Mathlib file above; Lean reported
+             0 errors and no `sorry`; sorry/admit/native_decide/search tactics were rejected.
+-/
+
+-- (context: the Mathlib file above this declaration)
+theorem normalSpace_iff_forall_isClosed_nhdsSet_inter_eq :
+    NormalSpace X ↔ ∀ s t : Set X, IsClosed s → IsClosed t → 𝓝ˢ (s ∩ t) = 𝓝ˢ s ⊓ 𝓝ˢ t := by
+  refine ⟨fun h s t hs ht => by haveI := h; exact hs.nhdsSet_inter_eq ht,
+    fun h => ⟨fun s t hs ht hst => ?_⟩⟩
+  rw [separatedNhds_iff_disjoint, disjoint_iff, ← h s t hs ht, hst.inter_eq, nhdsSet_empty]

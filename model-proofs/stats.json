@@ -1,0 +1,234 @@
+{
+ "O2-repair-vs-resample": [
+  "Opus 5.5: arm B = one attempt plus up to 3 repair rounds with Lean error messages; arm A = 4 independent attempts (attempt k)",
+  {
+   "A": [
+    692,
+    932
+   ],
+   "B": [
+    229,
+    233
+   ]
+  }
+ ],
+ "O3-lemma-layer": [
+  "Opus 5.5 with repair loop: arm R = repair only; arm RS = repair plus the Lean-checked lemma layer",
+  {
+   "R": [
+    152,
+    193
+   ],
+   "RS": [
+    177,
+    191
+   ]
+  }
+ ],
+ "O4-layer-with-search": [
+  "Opus 5.5 with repair loop, lemma layer and name search (arm RT)",
+  {
+   "RT": [
+    91,
+    95
+   ]
+  }
+ ],
+ "O5-repair-haiku": [
+  "Haiku 4.5: arm B = repair loop; arm A = independent attempts",
+  {
+   "A": [
+    41,
+    400
+   ],
+   "B": [
+    21,
+    100
+   ]
+  }
+ ],
+ "O5-repair-sonnet": [
+  "Sonnet 5.5: arm B = repair loop; arm A = independent attempts",
+  {
+   "A": [
+    275,
+    400
+   ],
+   "B": [
+    98,
+    100
+   ]
+  }
+ ],
+ "A1-astra": [
+  "GPT-6 Astra (Codex, effort medium): R = proof plus up to 3 repair rounds with Lean errors; RS = R plus lemma layer; RT = R with read-only Mathlib sources to search; N0-N3 = independent attempts",
+  {
+   "RS": [
+    159,
+    191
+   ],
+   "R": [
+    132,
+    191
+   ],
+   "N1": [
+    33,
+    191
+   ],
+   "N0": [
+    28,
+    191
+   ],
+   "N2": [
+    28,
+    191
+   ],
+   "N3": [
+    29,
+    191
+   ],
+   "RT": [
+    93,
+    95
+   ]
+  }
+ ],
+ "A2-astra-effort-low": [
+  "GPT-6 Astra, reasoning effort low (arms R, N0)",
+  {
+   "N0": [
+    31,
+    191
+   ],
+   "R": [
+    113,
+    191
+   ]
+  }
+ ],
+ "A2-astra-effort-high": [
+  "GPT-6 Astra, reasoning effort high (arms R, N0)",
+  {
+   "N0": [
+    33,
+    191
+   ],
+   "R": [
+    137,
+    191
+   ]
+  }
+ ],
+ "E1-repair-decomposition": [
+  "GPT-6 Astra, which part of Lean feedback makes repair work: after a shared first attempt (E0), V = full error messages, Z = line numbers only, B = only \"Lean rejected this proof\"",
+  {
+   "E0": [
+    0,
+    191
+   ],
+   "V": [
+    103,
+    191
+   ],
+   "Z": [
+    51,
+    191
+   ],
+   "B": [
+    50,
+    191
+   ]
+  }
+ ],
+ "LS1-leanstral-loop": [
+  "Leanstral 1.5 in a fixed check-and-repair loop: L1 = 1 candidate per round, L3 = up to 3",
+  {
+   "L1": [
+    31,
+    95
+   ],
+   "L3": [
+    46,
+    95
+   ]
+  }
+ ],
+ "O3LA-leanstral-agent": [
+  "Leanstral 1.5 as a tool-using agent (Mistral Vibe)",
+  {
+   "-": [
+    66,
+    95
+   ]
+  }
+ ],
+ "O3LA2-leanstral-agent-variants": [
+  "Leanstral 1.5 agent on the 29 theorems O3LA left open: neu = fresh restart, fest = fixed instruction, staffel = staged budget",
+  {
+   "fest": [
+    8,
+    29
+   ],
+   "neu": [
+    4,
+    29
+   ],
+   "staffel": [
+    5,
+    29
+   ]
+  }
+ ],
+ "O3LA3-leanstral-agent-feedback": [
+  "Leanstral 1.5 agent with goal-state feedback (arm rueck)",
+  {
+   "rueck": [
+    53,
+    95
+   ]
+  }
+ ],
+ "P1-astra-long-proofs": [
+  "GPT-6 Astra (Codex, effort medium), at most 10 calls per theorem: W = whole proof plus repair rounds; WT = W with read-only Mathlib sources to search; P = Lean-checked skeleton of have-steps, then one step per call",
+  {
+   "WT": [
+    57,
+    57
+   ],
+   "W": [
+    53,
+    57
+   ],
+   "P": [
+    10,
+    15
+   ]
+  }
+ ],
+ "D1-deepseek-16-samples": [
+  "DeepSeek-Prover-V2-7B (4-bit, local), 16 independent samples per theorem, no Lean feedback; 160 theorems: 80 DRIFT (human proof cites a lemma added after the 2025-05 snapshot) and 80 STABLE",
+  {
+   "accepted samples": [
+    165,
+    2560
+   ],
+   "distinct proofs": [
+    65,
+    65
+   ]
+  }
+ ],
+ "UE1-deepseek-8-samples": [
+  "DeepSeek-Prover-V2-7B (4-bit, local), 8 independent samples per theorem, no Lean feedback; 160 theorems: 80 DRIFT (human proof cites a lemma added after the 2025-05 snapshot) and 80 STABLE",
+  {
+   "accepted samples": [
+    144,
+    1280
+   ],
+   "distinct proofs": [
+    68,
+    68
+   ]
+  }
+ ]
+}

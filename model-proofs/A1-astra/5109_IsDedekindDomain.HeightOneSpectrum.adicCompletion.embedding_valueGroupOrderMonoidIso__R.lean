@@ -1,0 +1,52 @@
+/-
+Machine-generated proof, checked by Lean during the experiment.
+
+Theorem:     IsDedekindDomain.HeightOneSpectrum.adicCompletion.embedding_valueGroupOrderMonoidIso
+Source:      Mathlib @ a02a63c2, Mathlib/RingTheory/DedekindDomain/AdicValuation.lean, line 721
+             (new in Mathlib since d0a050ad6, i.e. after the models' training data)
+Experiment:  A1-astra, arm R, verified in round 3 (round 0 = first attempt)
+Prover:      gpt-6-astra
+Setup:       GPT-6 Astra (Codex, effort medium): R = proof plus up to 3 repair rounds with Lean errors; RS = R plus lemma layer; RT = R with read-only Mathlib sources to search; N0-N3 = independent attempts
+Check:       the proof replaced the human proof in the Mathlib file above; Lean reported
+             0 errors and no `sorry`; sorry/admit/native_decide/search tactics were rejected.
+-/
+
+noncomputable section
+open WithZero Multiplicative IsDedekindDomain
+variable {R : Type*} [CommRing R] [IsDedekindDomain R] {K S : Type*} [Field K] [CommSemiring S]
+namespace IsDedekindDomain.HeightOneSpectrum
+open scoped Classical in
+open scoped Classical in
+variable (K) in
+set_option backward.isDefEq.respectTransparency.types false in
+set_option backward.isDefEq.respectTransparency.types false in
+open scoped algebraMap in
+open scoped algebraMap in
+open scoped algebraMap in
+open scoped algebraMap in
+variable (K) in
+open scoped algebraMap in
+variable (K)
+open scoped algebraMap in
+variable {K} in
+variable {K}
+section Localization
+open Localization
+local instance : IsDedekindDomain
+local instance : IsLocalRing (subalgebra.ofField K _ v.asIdeal.primeCompl_le_nonZeroDivisors) :=
+variable (K) in
+open IsDedekindDomain
+open scoped algebraMap in
+end Localization
+variable (K)
+section Notation
+open Lean.PrettyPrinter.Delaborator
+end Notation
+namespace adicCompletion
+open UniformSpace MonoidWithZeroHom MonoidWithZeroHom.ValueGroup₀ Filter Topology Valuation
+
+theorem embedding_valueGroupOrderMonoidIso (g : (valuation K v).ValueGroup₀) :
+    embedding (valueGroupOrderMonoidIso K v g) = embedding g := by
+  induction g using WithZero.recZeroCoe <;>
+    simp [valueGroupOrderMonoidIso, valueGroupMulEquiv, map', embedding] <;>
+    rfl

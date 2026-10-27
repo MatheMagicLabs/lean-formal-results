@@ -1,0 +1,9 @@
+.lake/
+*.olean
+.DS_Store
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.toc

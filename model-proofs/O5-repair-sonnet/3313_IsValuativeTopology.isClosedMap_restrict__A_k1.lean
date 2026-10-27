@@ -1,0 +1,31 @@
+/-
+Machine-generated proof, checked by Lean during the experiment.
+
+Theorem:     IsValuativeTopology.isClosedMap_restrict
+Source:      Mathlib @ a02a63c2, Mathlib/Topology/Algebra/ValuativeRel/Completion.lean, line 157
+             (new in Mathlib since d0a050ad6, i.e. after the models' training data)
+Experiment:  O5-repair-sonnet, arm A, attempt 1, verified in round 0 (round 0 = first attempt)
+Prover:      claude-sonnet-5-5
+Setup:       Sonnet 5.5: arm B = repair loop; arm A = independent attempts
+Check:       the proof replaced the human proof in the Mathlib file above; Lean reported
+             0 errors and no `sorry`; sorry/admit/native_decide/search tactics were rejected.
+-/
+
+-- (context: the Mathlib file above this declaration)
+lemma isClosedMap_restrict :
+    IsClosedMap (v.restrict : K → v.ValueGroup₀) := by
+  intro s hs
+  rw [← isOpen_compl_iff, isOpen_iff_mem_nhds]
+  intro γ hγ
+  by_cases h0 : γ = 0
+  · subst h0
+    have h0s : (0 : K) ∉ s := fun h => hγ ⟨0, h, map_zero _⟩
+    have hmem : sᶜ ∈ 𝓝 (0 : K) := hs.isOpen_compl.mem_nhds h0s
+    obtain ⟨δ, hδ⟩ := (v.mem_nhds_zero_iff _).1 hmem
+    have hpos : (0 : v.ValueGroup₀) < δ := zero_lt_iff.2 δ.ne_zero
+    filter_upwards [WithZeroTopology.Iio_mem_nhds hpos] with y hy
+    rintro ⟨x, hx, rfl⟩
+    exact @hδ x hy hx
+  · filter_upwards [WithZeroTopology.singleton_mem_nhds_of_ne_zero h0] with y hy
+    rw [mem_singleton_iff] at hy
+    exact hy ▸ hγ

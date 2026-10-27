@@ -1,0 +1,24 @@
+/-
+Machine-generated proof, checked by Lean during the experiment.
+
+Theorem:     MeasureTheory.Measure.uniformOfFinset_apply
+Source:      Mathlib @ a02a63c2, Mathlib/Probability/Distributions/Uniform.lean, line 250
+             (new in Mathlib since d0a050ad6, i.e. after the models' training data)
+Experiment:  O2-repair-vs-resample, arm A, attempt 1, verified in round 0 (round 0 = first attempt)
+Prover:      claude-opus-5-5
+Setup:       Opus 5.5: arm B = one attempt plus up to 3 repair rounds with Lean error messages; arm A = 4 independent attempts (attempt k)
+Check:       the proof replaced the human proof in the Mathlib file above; Lean reported
+             0 errors and no `sorry`; sorry/admit/native_decide/search tactics were rejected.
+-/
+
+-- (context: the Mathlib file above this declaration)
+theorem uniformOfFinset_apply :
+    uniformOfFinset s t = #{x ∈ s | x ∈ t} / #s :=
+  calc
+    uniformOfFinset s t = ∑ x ∈ s with x ∈ t, (#s : ℝ≥0∞)⁻¹ := by
+        rw [uniformOfFinset, finsetSum_apply, Finset.sum_filter]
+        refine Finset.sum_congr rfl fun x _ => ?_
+        simp only [smul_apply, dirac_apply, smul_eq_mul, Set.indicator, Pi.one_apply]
+        split_ifs <;> simp
+      _ = #{x ∈ s | x ∈ t} / #s := by
+        rw [Finset.sum_const, nsmul_eq_mul, div_eq_mul_inv]

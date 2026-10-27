@@ -1,0 +1,24 @@
+/-
+Machine-generated proof, checked by Lean during the experiment.
+
+Theorem:     Sym2.finite_mk_fiber
+Source:      Mathlib @ a02a63c2, Mathlib/Data/Sym/Sym2/Card.lean, line 37
+             (new in Mathlib since d0a050ad6, i.e. after the models' training data)
+Experiment:  E1-repair-decomposition, arm Z, verified in round 0 (round 0 = first attempt)
+Prover:      gpt-6-astra
+Setup:       GPT-6 Astra, which part of Lean feedback makes repair work: after a shared first attempt (E0), V = full error messages, Z = line numbers only, B = only "Lean rejected this proof"
+Check:       the proof replaced the human proof in the Mathlib file above; Lean reported
+             0 errors and no `sorry`; sorry/admit/native_decide/search tactics were rejected.
+-/
+
+namespace Sym2
+open scoped Cardinal
+variable {α : Type*}
+
+theorem finite_mk_fiber (z : Sym2 α) : (Sym2.mk.uncurry ⁻¹' {z}).Finite := by
+  classical
+  refine Sym2.inductionOn z ?_
+  intro a b
+  refine ((Set.finite_singleton (b, a)).insert (a, b)).subset ?_
+  rintro ⟨c, d⟩ h
+  simpa [Sym2.eq_iff, Prod.ext_iff] using h
